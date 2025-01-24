@@ -74,7 +74,7 @@ The goal is to create a prototype for staking Runes (or testnet BTC) on a Cosmos
   - Test the end-to-end flow of staking and unstaking on the Torram chain.
   - Verify synchronization between the Torram chain and Bitcoin network.
 - **Documentation:**
-  - Add comprehensive documentation and a README to guide the client and developers.
+  - Add comprehensive documentation and a README to guide developers.
 
 ### **6. Current Status**
 
@@ -86,7 +86,3 @@ The goal is to create a prototype for staking Runes (or testnet BTC) on a Cosmos
   - Resolve errors during chain serving.
   - Implement state synchronization logic.
 
-### **7. Feedback Request**
-
-- This approach is designed to align with the client’s requirements for synchronizing the state between the Torram chain and Bitcoin network.
-- Client or lead developer feedback is welcome to refine the implementation and ensure the prototype meets expectations.
