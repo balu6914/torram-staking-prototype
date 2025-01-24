@@ -1,7 +1,6 @@
-````markdown
 # Torram Staking Prototype
 
-This repository contains a prototype for staking Runes (or BTC as a placeholder) on a custom Cosmos SDK blockchain called **Torram**. The goal is to create a decentralized application that allows staking and unstaking of assets (Runes/BTC) on the Cosmos SDK chain, with transactional information being visible on both the Cosmos SDK chain and the Bitcoin network.
+This repository contains a prototype for staking Runes (or BTC as a placeholder) on a custom Cosmos SDK blockchain called **Torram**.
 
 ---
 
@@ -47,8 +46,6 @@ Before starting, ensure you have the following installed:
    git clone https://github.com/balu6914/torram-staking-prototype.git
    cd torram-staking-prototype
    ```
-````
-
 2. Install Cosmos SDK dependencies:
 
    ```bash
@@ -82,7 +79,7 @@ This will build and start the chain, enabling you to interact with it via the CL
 
 ## Project Structure
 
-```
+```plaintext
 torram-staking-prototype/
 ├── cosmos-sdk/                # Cosmos SDK configurations
 ├── torram/                    # Torram blockchain source code
@@ -124,11 +121,3 @@ Refer to:
 - [Starport Documentation](https://docs.starport.network)
 
 ---
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
-```
-
-```
