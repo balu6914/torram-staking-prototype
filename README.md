@@ -1,6 +1,3 @@
-The issue is most likely related to the Markdown rendering on GitHub. Let me refine the `README.md` content further for better formatting consistency:
-
-```markdown
 # Torram Staking Prototype
 
 This repository contains a prototype for staking Runes (or BTC as a placeholder) on a custom Cosmos SDK blockchain called **Torram**.
@@ -8,6 +5,7 @@ This repository contains a prototype for staking Runes (or BTC as a placeholder)
 ---
 
 ## Table of Contents
+
 - [Overview](#overview)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
@@ -23,6 +21,7 @@ This repository contains a prototype for staking Runes (or BTC as a placeholder)
 ## Overview
 
 The **Torram Staking Prototype** aims to:
+
 - Facilitate **staking and unstaking** of assets (Runes/BTC).
 - Ensure **real-time synchronization** of asset data between the Bitcoin and Cosmos SDK networks.
 - Use custom Cosmos SDK message types for transaction handling (e.g., `MsgUnstake`).
@@ -34,6 +33,7 @@ The **Torram Staking Prototype** aims to:
 ### Prerequisites
 
 Before starting, ensure you have the following installed:
+
 - **Go** (v1.23.5 or higher)
 - **Cosmos SDK** (v0.50.11 via Starport)
 - **Starport CLI** (v28.7.0)
@@ -42,18 +42,22 @@ Before starting, ensure you have the following installed:
 ### Installing
 
 1. Clone this repository:
+
    ```bash
    git clone https://github.com/balu6914/torram-staking-prototype.git
    cd torram-staking-prototype
+
    ```
 
 2. Install Cosmos SDK dependencies:
+
    ```bash
    cd cosmos-sdk
    make install
    ```
 
 3. Scaffold the Torram chain using Starport:
+
    ```bash
    cd ..
    starport scaffold chain github.com/balu6914/torram
@@ -67,7 +71,7 @@ Before starting, ensure you have the following installed:
 
 Start the chain locally using Starport:
 
-```bash
+```
 cd torram
 starport chain serve
 ```
@@ -78,7 +82,7 @@ This will build and start the chain, enabling you to interact with it via the CL
 
 ## Project Structure
 
-```plaintext
+```pl
 torram-staking-prototype/
 ├── cosmos-sdk/                # Cosmos SDK configurations
 ├── torram/                    # Torram blockchain source code
@@ -96,6 +100,7 @@ torram-staking-prototype/
 Interact with the chain using Cosmos SDK CLI or custom transaction messages.
 
 ### Example CLI Command:
+
 ```bash
 cosmosd tx runestaking unstake [AMOUNT] [ASSET] --from [SENDER]
 ```
@@ -114,6 +119,7 @@ cosmosd tx runestaking unstake [AMOUNT] [ASSET] --from [SENDER]
 - **Bitcoin Go Library** (for BTC integration)
 
 Refer to:
+
 - [Cosmos SDK Documentation](https://docs.cosmos.network/v0.50/learn)
 - [Starport Documentation](https://docs.starport.network)
 
