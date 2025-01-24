@@ -5,7 +5,6 @@ This repository contains a prototype for staking Runes (or BTC as a placeholder)
 ---
 
 ## Table of Contents
-
 - [Overview](#overview)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
@@ -21,7 +20,6 @@ This repository contains a prototype for staking Runes (or BTC as a placeholder)
 ## Overview
 
 The **Torram Staking Prototype** aims to:
-
 - Facilitate **staking and unstaking** of assets (Runes/BTC).
 - Ensure **real-time synchronization** of asset data between the Bitcoin and Cosmos SDK networks.
 - Use custom Cosmos SDK message types for transaction handling (e.g., `MsgUnstake`).
@@ -33,7 +31,6 @@ The **Torram Staking Prototype** aims to:
 ### Prerequisites
 
 Before starting, ensure you have the following installed:
-
 - **Go** (v1.23.5 or higher)
 - **Cosmos SDK** (v0.50.11 via Starport)
 - **Starport CLI** (v28.7.0)
@@ -45,4 +42,3 @@ Before starting, ensure you have the following installed:
    ```bash
    git clone https://github.com/balu6914/torram-staking-prototype.git
    cd torram-staking-prototype
-   ```
