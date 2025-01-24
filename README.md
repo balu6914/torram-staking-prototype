@@ -42,69 +42,92 @@ Before starting, ensure you have the following installed:
 ### Installing
 
 1. Clone this repository:
+
    ```bash
    git clone https://github.com/balu6914/torram-staking-prototype.git
    cd torram-staking-prototype
    ```
 
-Install Cosmos SDK dependencies:
+2. Install Cosmos SDK dependencies:
 
-bash
-Copy
-Edit
-cd cosmos-sdk
-make install
-Scaffold the Torram chain using Starport:
+   ```bash
+   cd cosmos-sdk
+   make install
+   ```
 
-bash
-Copy
-Edit
-cd ..
-starport scaffold chain github.com/balu6914/torram
-Modify the custom modules (runestaking) in the x/ directory to handle staking and unstaking.
+3. Scaffold the Torram chain using Starport:
 
-Running the Blockchain
+   ```bash
+   cd ..
+   starport scaffold chain github.com/balu6914/torram
+   ```
+
+4. Modify the custom modules (`runestaking`) in the `x/` directory to handle staking and unstaking.
+
+---
+
+## Running the Blockchain
+
 Start the chain locally using Starport:
 
-bash
-Copy
-Edit
+```bash
 cd torram
 starport chain serve
+```
+
 This will build and start the chain, enabling you to interact with it via the CLI.
 
-Project Structure
-perl
-Copy
-Edit
+---
+
+## Project Structure
+
+```
 torram-staking-prototype/
-├── cosmos-sdk/ # Cosmos SDK configurations
-├── torram/ # Torram blockchain source code
-│ ├── cmd/ # CLI commands
-│ ├── x/ # Modules (e.g., runestaking)
-│ ├── app/ # Application setup
-│ └── ...
-└── README.md # Project documentation
-Usage
+├── cosmos-sdk/                # Cosmos SDK configurations
+├── torram/                    # Torram blockchain source code
+│   ├── cmd/                   # CLI commands
+│   ├── x/                     # Modules (e.g., runestaking)
+│   ├── app/                   # Application setup
+│   └── ...
+└── README.md                  # Project documentation
+```
+
+---
+
+## Usage
+
 Interact with the chain using Cosmos SDK CLI or custom transaction messages.
 
-Example CLI Command:
-bash
-Copy
-Edit
+### Example CLI Command:
+
+```bash
 cosmosd tx runestaking unstake [AMOUNT] [ASSET] --from [SENDER]
-[AMOUNT]: Amount to unstake (e.g., 100).
-[ASSET]: Type of asset (e.g., BTC or Runes).
-[SENDER]: Address performing the transaction.
-Dependencies
-Cosmos SDK (v0.50.11)
-Go (v1.23.5)
-Starport CLI (v28.7.0)
-Bitcoin Go Library (for BTC integration)
+```
+
+- **`[AMOUNT]`**: Amount to unstake (e.g., `100`).
+- **`[ASSET]`**: Type of asset (e.g., `BTC` or `Runes`).
+- **`[SENDER]`**: Address performing the transaction.
+
+---
+
+## Dependencies
+
+- **Cosmos SDK** (v0.50.11)
+- **Go** (v1.23.5)
+- **Starport CLI** (v28.7.0)
+- **Bitcoin Go Library** (for BTC integration)
+
 Refer to:
 
-Cosmos SDK Documentation
-Starport Documentation
+- [Cosmos SDK Documentation](https://docs.cosmos.network/v0.50/learn)
+- [Starport Documentation](https://docs.starport.network)
 
-License
-This project is licensed under the MIT License. See the LICENSE file for more details.
+---
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+```
+
+```
