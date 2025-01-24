@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.3.0
 // - protoc             (unknown)
-// source: torram/torram/query.proto
+// source: torram/runestaking/query.proto
 
-package torram
+package runestaking
 
 import (
 	context "context"
@@ -19,7 +19,7 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Query_Params_FullMethodName = "/torram.torram.Query/Params"
+	Query_Params_FullMethodName = "/torram.runestaking.Query/Params"
 )
 
 // QueryClient is the client API for Query service.
@@ -98,7 +98,7 @@ func _Query_Params_Handler(srv interface{}, ctx context.Context, dec func(interf
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Query_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "torram.torram.Query",
+	ServiceName: "torram.runestaking.Query",
 	HandlerType: (*QueryServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -107,5 +107,5 @@ var Query_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "torram/torram/query.proto",
+	Metadata: "torram/runestaking/query.proto",
 }

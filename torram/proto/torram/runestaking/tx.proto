@@ -1,0 +1,66 @@
+syntax = "proto3";
+package torram.runestaking;
+
+import "amino/amino.proto";
+import "cosmos/msg/v1/msg.proto";
+import "cosmos_proto/cosmos.proto";
+import "gogoproto/gogo.proto";
+import "torram/runestaking/params.proto";
+
+option go_package = "github.com/balu6914/torram/x/runestaking/types";
+
+// Msg defines the Msg service.
+service Msg {
+  option (cosmos.msg.v1.service) = true;
+
+  // UpdateParams defines a (governance) operation for updating the module
+  // parameters. The authority defaults to the x/gov module account.
+  rpc UpdateParams(MsgUpdateParams) returns (MsgUpdateParamsResponse);
+
+  // MsgStake defines the operation for staking assets (BTC or Runes).
+  rpc Stake(MsgStake) returns (MsgStakeResponse);
+
+  // MsgUnstake defines the operation for unstaking assets (BTC or Runes).
+  rpc Unstake(MsgUnstake) returns (MsgUnstakeResponse);
+}
+
+// MsgUpdateParams is the Msg/UpdateParams request type.
+message MsgUpdateParams {
+  option (cosmos.msg.v1.signer) = "authority";
+  option (amino.name) = "torram/x/runestaking/MsgUpdateParams";
+
+  string authority = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+
+  Params params = 2 [
+    (gogoproto.nullable) = false,
+    (amino.dont_omitempty) = true
+  ];
+}
+
+// MsgUpdateParamsResponse defines the response structure for executing a
+// MsgUpdateParams message.
+message MsgUpdateParamsResponse {}
+
+// MsgStake is the request type for staking an asset.
+message MsgStake {
+  string creator = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+  string amount = 2;  // Amount of the asset being staked.
+  string asset = 3;   // Type of asset being staked (e.g., BTC or Runes).
+}
+
+// MsgStakeResponse defines the response type for staking.
+message MsgStakeResponse {
+  string status = 1;  // Status message (e.g., "Staking successful").
+}
+
+// MsgUnstake is the request type for unstaking an asset.
+message MsgUnstake {
+  string creator = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+  string amount = 2;  // Amount of the asset being unstaked.
+  string asset = 3;   // Type of asset being unstaked (e.g., BTC or Runes).
+}
+
+// MsgUnstakeResponse defines the response type for unstaking.
+message MsgUnstakeResponse {
+  string status = 1;  // Status message (e.g., "Unstaking successful").
+}

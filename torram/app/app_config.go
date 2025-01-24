@@ -53,7 +53,10 @@ import (
 	ibcexported "github.com/cosmos/ibc-go/v8/modules/core/exported"
 	"google.golang.org/protobuf/types/known/durationpb"
 
+	runestakingmodulev1 "github.com/balu6914/torram/api/torram/runestaking/module"
 	torrammodulev1 "github.com/balu6914/torram/api/torram/torram/module"
+	_ "github.com/balu6914/torram/x/runestaking/module" // import for side-effects
+	runestakingmoduletypes "github.com/balu6914/torram/x/runestaking/types"
 	_ "github.com/balu6914/torram/x/torram/module" // import for side-effects
 	torrammoduletypes "github.com/balu6914/torram/x/torram/types"
 	// this line is used by starport scaffolding # stargate/app/moduleImport
@@ -94,6 +97,7 @@ var (
 		circuittypes.ModuleName,
 		// chain modules
 		torrammoduletypes.ModuleName,
+		runestakingmoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/initGenesis
 	}
 
@@ -119,6 +123,7 @@ var (
 		ibcfeetypes.ModuleName,
 		// chain modules
 		torrammoduletypes.ModuleName,
+		runestakingmoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/beginBlockers
 	}
 
@@ -138,6 +143,7 @@ var (
 		ibcfeetypes.ModuleName,
 		// chain modules
 		torrammoduletypes.ModuleName,
+		runestakingmoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/endBlockers
 	}
 
@@ -296,6 +302,10 @@ var (
 			{
 				Name:   torrammoduletypes.ModuleName,
 				Config: appconfig.WrapAny(&torrammodulev1.Module{}),
+			},
+			{
+				Name:   runestakingmoduletypes.ModuleName,
+				Config: appconfig.WrapAny(&runestakingmodulev1.Module{}),
 			},
 			// this line is used by starport scaffolding # stargate/app/moduleConfig
 		},

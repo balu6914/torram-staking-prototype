@@ -1,0 +1,15 @@
+syntax = "proto3";
+package torram.runestaking;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/balu6914/torram/x/runestaking/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (amino.name) = "torram/x/runestaking/Params";
+  option (gogoproto.equal) = true;
+
+  
+}
