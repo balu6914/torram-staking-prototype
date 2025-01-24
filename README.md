@@ -1,126 +1,143 @@
+Here’s a well-formatted `README.md` file that will render nicely on GitHub:
 
-```markdown
+````markdown
 # Torram Staking Prototype
 
-This repository contains the prototype for staking Runes (or BTC as a placeholder) on a custom Cosmos SDK blockchain called **Torram**. The goal is to create a decentralized application that allows staking and unstaking of assets (Runes/BTC) on the Cosmos SDK chain, with transactional information being visible on both the Cosmos SDK chain and the Bitcoin network.
+This repository contains a prototype for staking Runes (or BTC as a placeholder) on a custom Cosmos SDK blockchain called **Torram**. The goal is to create a decentralized application that allows staking and unstaking of assets (Runes/BTC) on the Cosmos SDK chain, with transactional information being visible on both the Cosmos SDK chain and the Bitcoin network.
+
+---
 
 ## Table of Contents
+
 - [Overview](#overview)
 - [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installing](#installing)
+- [Running the Blockchain](#running-the-blockchain)
 - [Project Structure](#project-structure)
 - [Usage](#usage)
 - [Dependencies](#dependencies)
 - [License](#license)
 
+---
+
 ## Overview
 
-The **Torram Staking Prototype** aims to create a seamless interaction between the Bitcoin network and the Cosmos SDK chain. The prototype allows users to stake Runes (or BTC in this case) and track the staked assets across both networks. Upon unstaking, the status of the transaction is reflected in both networks as well.
+The **Torram Staking Prototype** aims to:
 
-Key features:
-- **Staking and Unstaking** of assets (Runes/BTC).
-- **Real-time synchronization** of asset data between Cosmos SDK and Bitcoin networks.
-- **Custom Cosmos SDK message types** (e.g., `MsgUnstake`) for handling staking/unstaking transactions.
+- Facilitate **staking and unstaking** of assets (Runes/BTC).
+- Ensure **real-time synchronization** of asset data between the Bitcoin and Cosmos SDK networks.
+- Use custom Cosmos SDK message types for transaction handling (e.g., `MsgUnstake`).
+
+---
 
 ## Getting Started
 
 ### Prerequisites
 
-To set up the project, ensure that the following dependencies are installed on your machine:
+Before starting, ensure you have the following installed:
 
 - **Go** (v1.23.5 or higher)
-- **Node.js** (for any additional services or front-end integration, if applicable)
-- **Cosmos SDK** (v0.50.11, installed via Starport)
-- **Starport CLI** for scaffolding Cosmos SDK chains
+- **Cosmos SDK** (v0.50.11 via Starport)
+- **Starport CLI** (v28.7.0)
+- **Node.js** (for potential API/front-end integration)
 
 ### Installing
 
-1. Clone the repository:
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/balu6914/torram-staking-prototype.git
+   cd torram-staking-prototype
+   ```
+````
 
-```bash
-git clone https://github.com/balu6914/torram-staking-prototype.git
-cd torram-staking-prototype
-```
+2. Install Cosmos SDK dependencies:
 
-2. Install required dependencies for the Cosmos SDK chain:
+   ```bash
+   cd cosmos-sdk
+   make install
+   ```
 
-```bash
-cd cosmos-sdk
-make install
-```
+3. Scaffold the Torram chain using Starport:
 
-3. Initialize the Torram chain using Starport:
+   ```bash
+   cd ..
+   starport scaffold chain github.com/balu6914/torram
+   ```
+
+4. Modify the custom modules (`runestaking`) in the `x/` directory to handle staking and unstaking.
+
+---
+
+## Running the Blockchain
+
+Start the chain locally using Starport:
 
 ```bash
 cd torram
-starport scaffold chain github.com/balu6914/torram
-```
-
-4. Modify `types.go` and `tx.pb.go` files to define staking/unstaking messages, and ensure Cosmos SDK correctly recognizes custom message types.
-
-5. Define the custom signers and implement the `DefineCustomGetSigners` method in the `runestaking` module to handle the `MsgUnstake` transaction message.
-
-### Running the Blockchain
-
-To start the chain:
-
-```bash
 starport chain serve
 ```
 
-This will launch the chain, and you can interact with it using Cosmos SDK commands or build out additional interfaces for front-end or API communication.
+This will build and start the chain, enabling you to interact with it via the CLI.
+
+---
 
 ## Project Structure
 
 ```
 torram-staking-prototype/
-│
-├── cosmos-sdk/                # Cosmos SDK dependencies and configurations
-│   ├── Makefile               # Build and installation instructions
-│   ├── ...
-│
-├── torram/                    # The Cosmos SDK-based blockchain
-│   ├── cmd/                   # Application CLI commands
-│   ├── x/                     # Cosmos SDK modules (e.g., runestaking)
-│   ├── ...
-│
-└── README.md                  # This file
+├── cosmos-sdk/                # Cosmos SDK configurations
+├── torram/                    # Torram blockchain source code
+│   ├── cmd/                   # CLI commands
+│   ├── x/                     # Modules (e.g., runestaking)
+│   ├── app/                   # Application setup
+│   └── ...
+└── README.md                  # Project documentation
 ```
+
+---
 
 ## Usage
 
-Once the chain is running, you can interact with it via Cosmos SDK CLI or custom transaction messages. For staking and unstaking, you’ll typically send messages of type `MsgStake` and `MsgUnstake` to the blockchain.
+Interact with the chain using Cosmos SDK CLI or custom transaction messages.
 
-Example (using Cosmos SDK CLI):
+### Example CLI Command:
 
 ```bash
 cosmosd tx runestaking unstake [AMOUNT] [ASSET] --from [SENDER]
 ```
 
-Where:
-- `[AMOUNT]` is the amount of the asset to unstake (e.g., "100").
-- `[ASSET]` is the type of asset being unstaked (e.g., "BTC" or "Runes").
-- `[SENDER]` is the address of the account performing the transaction.
+- **`[AMOUNT]`**: Amount to unstake (e.g., `100`).
+- **`[ASSET]`**: Type of asset (e.g., `BTC` or `Runes`).
+- **`[SENDER]`**: Address performing the transaction.
+
+---
 
 ## Dependencies
 
-- **Cosmos SDK** v0.50.11
-- **Go** v1.23.5
+- **Cosmos SDK** (v0.50.11)
+- **Go** (v1.23.5)
 - **Starport CLI** (v28.7.0)
 - **Bitcoin Go Library** (for BTC integration)
 
-For detailed Cosmos SDK and Starport setup, refer to the official documentation:
+Refer to:
+
 - [Cosmos SDK Documentation](https://docs.cosmos.network/v0.50/learn)
 - [Starport Documentation](https://docs.starport.network)
 
+---
+
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
-### Key sections:
-- **Overview**: Describes the purpose and functionality of the prototype.
-- **Getting Started**: Instructions on how to set up the project, including prerequisites and installation steps.
-- **Project Structure**: Directory structure breakdown.
-- **Usage**: How to use the chain for staking and unstaking.
-- **Dependencies**: Lists the dependencies needed for the project.
-- **License**: Licensing information (you can adjust the license as necessary).
+````
+
+### How to Add to GitHub:
+1. Save this content in a file named `README.md`.
+2. Add and commit the file:
+   ```bash
+   git add README.md
+   git commit -m "Add README.md with detailed documentation"
+   git push
+````
